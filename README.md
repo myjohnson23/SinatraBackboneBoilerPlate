@@ -1,0 +1,2 @@
+# SinatraBackboneBoilerPlate
+First Backbone App
