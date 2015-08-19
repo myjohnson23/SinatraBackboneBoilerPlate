@@ -1,0 +1,43 @@
+<h1>Exercise 4</h1>
+
+<h3>Hello Backbone Views everywhere</h3>
+
+<section id="container">
+
+</section>
+
+<section id="container">
+
+</section>
+
+<section id="container">
+
+</section>
+
+<section id="container">
+
+</section>
+
+<script type="text/javascript">
+
+  var app = app || {};
+  app.listItemView = Backbone.View.extend({
+    initialize: function() {
+      console.log('initialize passed');
+      this.render();
+      console.log('hey, content should be rendered in');
+      console.log(this.$el);
+    },
+    render: function() {
+      console.log('and here is render passing');
+      // $('body').append('<img src="http://editwallpaper.com/wp-content/uploads/2015/04/Amazing-Chameleon-Wallpaper-Photography-Macro.jpg">');
+      this.$el.append('<img src="http://editwallpaper.com/wp-content/uploads/2015/04/Amazing-Chameleon-Wallpaper-Photography-Macro.jpg">');
+    }
+  });
+
+  var listItem = new app.listItemView({
+    el: $('#container')
+  });
+
+
+</script>
