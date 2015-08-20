@@ -1,0 +1,21 @@
+<h1>Exercise 7</h1>
+
+<h3>My Model example</h3>
+
+<script type="text/javascript">
+
+var myNameSpace = myNameSpace || {};
+
+myNameSpace.testMovie = Backbone.Model.extend({
+  url:  "http://www.omdbapi.com/?t=Taxi&y=&plot=short&r=json",
+  initialize: function(event) {
+    this.on('change', function(event) {
+      console.log(this.attributes);
+    })
+  }
+
+});
+
+var myMovie = new myNameSpace.testMovie();
+myMovie.fetch();
+</script>
