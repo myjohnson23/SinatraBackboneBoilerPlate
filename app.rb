@@ -6,6 +6,14 @@ ActiveRecord::Base.establish_connection(
   :database => 'instafake'
 )
 
+## instafake application!
+## final product :)
+## we did it guys
+
+get '/instafake' do
+  erb :instafake
+end
+
 get '/' do
   erb :index
 end
@@ -42,6 +50,10 @@ get '/8' do
   erb :eight
 end
 
+get '/9' do
+  erb :nine
+end
+
 ##### RESTFUL API
 
 ## get
@@ -53,28 +65,40 @@ get '/api/instafake/:id' do
   InstagramModel.find(params[:id]).to_json
 end
 ## create
-post '/api/instafake' do
-  InstagramModel.create(params).to_json
+  post '/api/instafake' do
+  ## This is for Backbone, Backbone uses the request_body
+  request_body = JSON.parse(request.body.read.to_s)
+  ## This would be needed for CocoaRestClient, etc.. that uses the params to send the request
+  #params_body = params
+
+  #binding.pry
+
+  InstagramModel.create(request_body).to_json
+  ## Allows us to open pry and look at some debugging
+  #binding.pry
+
 end
 ## update
 put '/api/instafake/:id' do
+  request_body = JSON.parse(request.body.read.to_s)
   @id = params[:id]
   @insta = InstagramModel.find(@id)
-  @insta.username = params[:username]
-  @insta.post = params[:post]
-  @insta.description = params[:description]
-  @insta.hashtags = params[:hashtags]
+  @insta.username = request_body[:username]
+  @insta.post = request_body[:post]
+  @insta.description = request_body[:description]
+  @insta.hashtags = request_body[:hashtags]
   @insta.save
   @insta.to_json
 end
 
 patch '/api/instafake/:id' do
+  request_body = JSON.parse(request.body.read.to_s)
   @id = params[:id]
   @insta = InstagramModel.find(@id)
-  @insta.username = params[:username]
-  @insta.post = params[:post]
-  @insta.description = params[:description]
-  @insta.hashtags = params[:hashtags]
+  @insta.username = request_body[:username]
+  @insta.post = request_body[:post]
+  @insta.description = request_body[:description]
+  @insta.hashtags = request_body[:hashtags]
   @insta.save
   @insta.to_json
 end

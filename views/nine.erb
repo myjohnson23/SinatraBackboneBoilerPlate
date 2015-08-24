@@ -1,0 +1,24 @@
+<h1>Exercise 9</h1>
+
+<h3>Using Collections</h3>
+
+<script type="text/javascript">
+  var insta = insta || {};
+  insta.model = Backbone.Model.extend({
+    initialize: function() {
+      console.log('An instafake with an id of ' + this.get('id') + ' was just created');
+      this.fetch();
+    }
+  });
+
+  insta.collection = Backbone.Collection.extend({
+    model: insta.model,
+    url: '/api/instafake',
+    initialize: function() {
+      console.log('Starting our collection');
+      this.fetch();
+    }
+  });
+
+  var photosCollection = new insta.collection();
+</script>

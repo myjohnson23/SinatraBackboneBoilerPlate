@@ -1,0 +1,57 @@
+<script id="table-row-template" type="text/template">
+  <tr>
+    <td><%%= username %></td>
+    <td><%%= post %></td>
+    <td><%%= description %></td>
+    <td><%%= hashtags %></td>
+    <td><%%= id %></td>
+  </tr>
+</script>
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+<h1>Instafake</h1>
+<h3>The text-based way to be hip</h3>
+
+<button id="refresh-instafake" type="submit" class="btn btn-default">Refresh</button>
+
+<section>
+  <h4>Create Instafake</h4>
+  <!-- <form class="form-inline"> -->
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" class="form-control" id="username" placeholder="Jane Doe">
+  </div>
+  <div class="form-group">
+    <label for="post">Post</label>
+    <input type="text" class="form-control" id="post" placeholder="some.png">
+  </div>
+  <div class="form-group">
+    <label for="description">Decription</label>
+    <input type="text" class="form-control" id="description" placeholder="One hell of a night!">
+  </div>
+  <div class="form-group">
+    <label for="hashtags">Hashtags</label>
+    <input type="text" class="form-control" id="hashtags" placeholder="#example">
+  </div>
+  <button id="add-instafake" type="submit" class="btn btn-default">Create Instafake</button>
+<!-- </form> -->
+
+</section>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Post</th>
+      <th>Description</th>
+      <th>Hashtags</th>
+      <th>Remove?</th>
+    </tr>
+  </thead>
+  <tbody class="instafakes">
+    <!-- all of my instafakes will go in here! -->
+  </tbody>
+</table>
+
+
+<script type="text/javascript" src="/scripts/instafake.js"></script>
